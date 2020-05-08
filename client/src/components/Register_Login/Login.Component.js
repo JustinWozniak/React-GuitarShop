@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import FormField from '../utils/Form/formfield';
-
+import { update } from '../utils/Form/formActions';
 
 class Login extends Component {
 
@@ -44,19 +44,21 @@ class Login extends Component {
     }
 
     updateForm = (element) => {
+        const newFormdata = update(element, this.state.formdata, 'login');
         this.setState({
             formError: false,
-
+            formdata: newFormdata
         })
     }
 
+
     submitForm = (event) => {
+        event.preventDefault();
 
 
     }
 
     render() {
-
         return (
             <div className="signin_wrapper">
                 <form onSubmit={(event) => this.submitForm(event)}>
@@ -76,16 +78,16 @@ class Login extends Component {
                     {this.state.formError ?
                         <div className="error_label">
                             Please check your data
-                    </div>
+                        </div>
                         : null}
                     <button onClick={(event) => this.submitForm(event)}>
                         Log in
-                </button>
+                    </button>
 
 
                 </form>
             </div>
-        )
+        );
     }
 }
 

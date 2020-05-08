@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import Header from '../components/Header_footer/Header/Header.Component'
 import Footer from '../components/Header_footer/Footer/Footer.Component'
+
+
+
 class Layout extends Component {
     render() {
         return (

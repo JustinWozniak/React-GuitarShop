@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import FormField from '../utils/Form/formfield';
-import { update } from '../utils/Form/formActions';
+import { update, generateData, isFormValid } from '../utils/Form/formActions';
+
 
 class Login extends Component {
 
@@ -55,7 +56,16 @@ class Login extends Component {
     submitForm = (event) => {
         event.preventDefault();
 
+        let dataToSubmit = generateData(this.state.formdata, 'login');
+        let formIsValid = isFormValid(this.state.formdata, 'login')
 
+        if (formIsValid) {
+console.log(dataToSubmit)
+        } else {
+            this.setState({
+                formError: true
+            })
+        }
     }
 
     render() {

@@ -1,13 +1,29 @@
 import React, { Component } from 'react';
+import HomeSlider from './Home_Slider.Component';
+
+
+
+import { connect } from 'react-redux';
 
 
 class Home extends Component {
+
+   
+
     render() {
         return (
-          <div>
-              HOME
-          </div>
-        )
+            <div>
+                <HomeSlider/>
+               
+            </div>
+        );
     }
 }
-export default Home;
+
+const mapStateToProps = (state) => {
+    return {
+        products: state.products
+    }
+}
+
+export default connect(mapStateToProps)(Home);

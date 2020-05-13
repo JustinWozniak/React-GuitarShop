@@ -359,6 +359,7 @@ footer .business_nfo .nfo {
   position: relative;
   background-size: cover !important;
   background-position: center left !important;
+  height: 462px;
 }
 
 .featured_container .featured_action {

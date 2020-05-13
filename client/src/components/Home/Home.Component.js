@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import HomeSlider from './Home_Slider.Component';
-
+import HomePromotion from './Home_Promotions.component'
 
 
 import { connect } from 'react-redux';
@@ -14,7 +14,7 @@ class Home extends Component {
         return (
             <div>
                 <HomeSlider/>
-               
+                <HomePromotion/>
             </div>
         );
     }

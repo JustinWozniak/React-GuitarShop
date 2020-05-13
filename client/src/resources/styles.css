@@ -385,6 +385,7 @@ footer .business_nfo .nfo {
   font-size: 50px;
   font-weight: 300;
   margin-top: 10px;
+  
 }
 
 /*============================
@@ -411,6 +412,7 @@ footer .business_nfo .nfo {
   font-size: 70px;
   font-weight: 700;
   margin: 10px auto;
+  
 }
 
 .home_promotion .tag.low_title {
@@ -437,12 +439,13 @@ footer .business_nfo .nfo {
   text-align: center;
   font-size: 25px;
   margin-bottom: 50px;
+  
 }
 
 .card_block_shop .card_item_wrapper {
   float: left;
   width: 33.3%;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 /*============================
@@ -456,6 +459,7 @@ footer .business_nfo .nfo {
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
+  
 }
 
 .card_item_wrapper .image {
@@ -464,11 +468,13 @@ footer .business_nfo .nfo {
   background-position: center !important;
   background-size: cover !important;
   border: 1px solid #f0f0f0;
+  
 }
 
 .card_item_wrapper .tags {
   position: relative;
   border-bottom: 1px solid #f0f0f0;
+  
 }
 
 .card_item_wrapper .tags .brand,
@@ -476,17 +482,20 @@ footer .business_nfo .nfo {
 .card_item_wrapper .tags .price {
   text-align: center;
   margin: 5px;
+  
 }
 
 .card_item_wrapper .tags .brand {
   font-size: 17px;
   font-weight: 700;
   color: #2196f3;
+  
 }
 
 .card_item_wrapper .tags .name {
   font-size: 21px;
   font-weight: 700;
+  
 }
 
 .card_item_wrapper .tags .price {
@@ -497,17 +506,20 @@ footer .business_nfo .nfo {
 .card_item_wrapper .actions {
   display: flex;
   padding: 15px 0 10px 0;
+  
 }
 
 .card_item_wrapper .actions .button_wrapp:nth-child(1) {
   flex-grow: 1;
   padding-right: 10px;
+  
 }
 
 .card_item_wrapper.grid_bars {
   float: none;
-  width: 100%;
+  width: 90%;
   display: flex;
+  
 }
 
 .card_item_wrapper.grid_bars .image {
@@ -519,6 +531,7 @@ footer .business_nfo .nfo {
 .card_item_wrapper.grid_bars .action_container {
   flex-grow: 1;
   border: 1px solid #e6e6e6;
+  
 }
 
 .card_item_wrapper.grid_bars .description {
@@ -534,11 +547,13 @@ footer .business_nfo .nfo {
 
 .card_item_wrapper.grid_bars .tags .brand {
   font-size: 21px;
+  
 }
 
 .card_item_wrapper.grid_bars .tags .brand,
 .card_item_wrapper.grid_bars .tags .name {
   float: left;
+  
 }
 
 .card_item_wrapper.grid_bars .tags .price {
@@ -557,10 +572,11 @@ footer .business_nfo .nfo {
 
 .shop_wrapper {
   display: flex;
+  padding-left: 20px;
 }
 
 .shop_wrapper .left {
-  flex-grow: 1;
+  flex-grow: .25;
 }
 
 .shop_wrapper .right {
@@ -570,6 +586,7 @@ footer .business_nfo .nfo {
 .collapse_title span {
   text-transform: uppercase;
   font-weight: 700;
+ 
 }
 
 .grid_btn {

@@ -2,188 +2,188 @@ import React, { Component } from 'react';
 import UserLayout from '../../../hoc/user';
 
 import FormField from '../../utils/Form/formField';
-import { update, generateData, isFormValid, populateOptionFields,resetFields} from '../../utils/Form/formActions';
+import { update, generateData, isFormValid, populateOptionFields, resetFields } from '../../utils/Form/formActions';
 
 
 import { connect } from 'react-redux';
-import { getBrands, getWoods,addProduct, clearProduct } from '../../../actions/products_actions';
+import { getBrands, getWoods, addProduct, clearProduct } from '../../../actions/products_actions';
 
 
 class AddProduct extends Component {
 
     state = {
-        formError:false,
-        formSuccess:false,
-        formdata:{
+        formError: false,
+        formSuccess: false,
+        formdata: {
             name: {
                 element: 'input',
                 value: '',
-                config:{
+                config: {
                     label: 'Product name',
                     name: 'name_input',
                     type: 'text',
                     placeholder: 'Enter your name'
                 },
-                validation:{
+                validation: {
                     required: true
                 },
                 valid: false,
                 touched: false,
-                validationMessage:'',
+                validationMessage: '',
                 showlabel: true
             },
             description: {
                 element: 'textarea',
                 value: '',
-                config:{
+                config: {
                     label: 'Product description',
                     name: 'description_input',
                     type: 'text',
                     placeholder: 'Enter your description'
                 },
-                validation:{
+                validation: {
                     required: true
                 },
                 valid: false,
                 touched: false,
-                validationMessage:'',
+                validationMessage: '',
                 showlabel: true
             },
             price: {
                 element: 'input',
                 value: '',
-                config:{
+                config: {
                     label: 'Product price',
                     name: 'price_input',
                     type: 'number',
                     placeholder: 'Enter your price'
                 },
-                validation:{
+                validation: {
                     required: true
                 },
                 valid: false,
                 touched: false,
-                validationMessage:'',
+                validationMessage: '',
                 showlabel: true
             },
             brand: {
                 element: 'select',
                 value: '',
-                config:{
+                config: {
                     label: 'Product Brand',
                     name: 'brands_input',
-                    options:[]
+                    options: []
                 },
-                validation:{
+                validation: {
                     required: true
                 },
                 valid: false,
                 touched: false,
-                validationMessage:'',
+                validationMessage: '',
                 showlabel: true
             },
             shipping: {
                 element: 'select',
                 value: '',
-                config:{
+                config: {
                     label: 'Shipping',
                     name: 'shipping_input',
-                    options:[
-                        {key:true,value:'Yes'},
-                        {key:false,value:'No'},
+                    options: [
+                        { key: true, value: 'Yes' },
+                        { key: false, value: 'No' },
                     ]
                 },
-                validation:{
+                validation: {
                     required: true
                 },
                 valid: false,
                 touched: false,
-                validationMessage:'',
+                validationMessage: '',
                 showlabel: true
             },
             available: {
                 element: 'select',
                 value: '',
-                config:{
+                config: {
                     label: 'Available, in stock',
                     name: 'available_input',
-                    options:[
-                        {key:true,value:'Yes'},
-                        {key:false,value:'No'},
+                    options: [
+                        { key: true, value: 'Yes' },
+                        { key: false, value: 'No' },
                     ]
                 },
-                validation:{
+                validation: {
                     required: true
                 },
                 valid: false,
                 touched: false,
-                validationMessage:'',
+                validationMessage: '',
                 showlabel: true
             },
             wood: {
                 element: 'select',
                 value: '',
-                config:{
+                config: {
                     label: 'Wood material',
                     name: 'wood_input',
-                    options:[]
+                    options: []
                 },
-                validation:{
+                validation: {
                     required: true
                 },
                 valid: false,
                 touched: false,
-                validationMessage:'',
+                validationMessage: '',
                 showlabel: true
             },
             frets: {
                 element: 'select',
                 value: '',
-                config:{
+                config: {
                     label: 'Frets',
                     name: 'frets_input',
-                    options:[
-                        {key:20,value:20},
-                        {key:21,value:21},
-                        {key:22,value:22},
-                        {key:24,value:24}
+                    options: [
+                        { key: 20, value: 20 },
+                        { key: 21, value: 21 },
+                        { key: 22, value: 22 },
+                        { key: 24, value: 24 }
                     ]
                 },
-                validation:{
+                validation: {
                     required: true
                 },
                 valid: false,
                 touched: false,
-                validationMessage:'',
+                validationMessage: '',
                 showlabel: true
             },
             publish: {
                 element: 'select',
                 value: '',
-                config:{
+                config: {
                     label: 'Publish',
                     name: 'publish_input',
-                    options:[
-                        {key:true,value:'Public'},
-                        {key:false,value:'Hidden'},
+                    options: [
+                        { key: true, value: 'Public' },
+                        { key: false, value: 'Hidden' },
                     ]
                 },
-                validation:{
+                validation: {
                     required: true
                 },
                 valid: false,
                 touched: false,
-                validationMessage:'',
+                validationMessage: '',
                 showlabel: true
             },
-            images:{
-                value:[],
-                validation:{
+            images: {
+                value: [],
+                validation: {
                     required: false
                 },
                 valid: true,
                 touched: false,
-                validationMessage:'',
+                validationMessage: '',
                 showlabel: false
             }
         }
@@ -197,7 +197,7 @@ class AddProduct extends Component {
     }
 
     updateForm = (element) => {
-        const newFormdata = update(element,this.state.formdata,'products');
+        const newFormdata = update(element, this.state.formdata, 'products');
         this.setState({
             formError: false,
             formdata: newFormdata
@@ -205,33 +205,33 @@ class AddProduct extends Component {
     }
 
     resetFieldHandler = () => {
-        const newFormData = resetFields(this.state.formdata,'products');
+        const newFormData = resetFields(this.state.formdata, 'products');
 
         this.setState({
             formdata: newFormData,
-            formSuccess:true
+            formSuccess: true
         });
-        setTimeout(()=>{
+        setTimeout(() => {
             this.setState({
                 formSuccess: false
-            },()=>{
+            }, () => {
                 this.props.dispatch(clearProduct())
             })
-        },3000)
+        }, 3000)
     }
 
-    submitForm= (event) =>{
+    submitForm = (event) => {
         event.preventDefault();
-        
-        let dataToSubmit = generateData(this.state.formdata,'products');
-        let formIsValid = isFormValid(this.state.formdata,'products')
 
-        if(formIsValid){
-            this.props.dispatch(addProduct(dataToSubmit)).then(()=>{
-                if( this.props.products.addProduct.success){
+        let dataToSubmit = generateData(this.state.formdata, 'products');
+        let formIsValid = isFormValid(this.state.formdata, 'products')
+
+        if (formIsValid) {
+            this.props.dispatch(addProduct(dataToSubmit)).then(() => {
+                if (this.props.products.addProduct.success) {
                     this.resetFieldHandler();
-                }else{
-                    this.setState({formError: true})
+                } else {
+                    this.setState({ formError: true })
                 }
             })
         } else {
@@ -242,16 +242,16 @@ class AddProduct extends Component {
     }
 
 
-    componentDidMount(){
+    componentDidMount() {
         const formdata = this.state.formdata;
 
-        this.props.dispatch(getBrands()).then( response => {
-            const newFormData = populateOptionFields(formdata,this.props.products.brands,'brand');
+        this.props.dispatch(getBrands()).then(response => {
+            const newFormData = populateOptionFields(formdata, this.props.products.brands, 'brand');
             this.updateFields(newFormData)
         })
 
-        this.props.dispatch(getWoods()).then( response => {
-            const newFormData = populateOptionFields(formdata,this.props.products.woods,'wood');
+        this.props.dispatch(getWoods()).then(response => {
+            const newFormData = populateOptionFields(formdata, this.props.products.woods, 'wood');
             this.updateFields(newFormData)
         })
     }
@@ -264,7 +264,7 @@ class AddProduct extends Component {
         newFormData['images'].valid = true;
 
         this.setState({
-            formdata:  newFormData
+            formdata: newFormData
         })
     }
 
@@ -273,10 +273,10 @@ class AddProduct extends Component {
             <UserLayout>
                 <div>
                     <h1>Add product</h1>
-                    
-                    <form onSubmit={(event)=> this.submitForm(event)}>
 
-                       
+                    <form onSubmit={(event) => this.submitForm(event)}>
+
+
 
                         <FormField
                             id={'name'}
@@ -284,13 +284,13 @@ class AddProduct extends Component {
                             change={(element) => this.updateForm(element)}
                         />
 
-                         <FormField
+                        <FormField
                             id={'description'}
                             formdata={this.state.formdata.description}
                             change={(element) => this.updateForm(element)}
                         />
 
-                         <FormField
+                        <FormField
                             id={'price'}
                             formdata={this.state.formdata.price}
                             change={(element) => this.updateForm(element)}
@@ -310,7 +310,7 @@ class AddProduct extends Component {
                             change={(element) => this.updateForm(element)}
                         />
 
-                         <FormField
+                        <FormField
                             id={'available'}
                             formdata={this.state.formdata.available}
                             change={(element) => this.updateForm(element)}
@@ -342,7 +342,7 @@ class AddProduct extends Component {
                             <div className="form_success">
                                 Success
                             </div>
-                        :null}
+                            : null}
 
                         {this.state.formError ?
                             <div className="error_label">
@@ -358,7 +358,7 @@ class AddProduct extends Component {
 
                 </div>
             </UserLayout>
-            
+
         );
     }
 }

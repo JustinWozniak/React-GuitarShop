@@ -9,7 +9,7 @@ import Auth from './hoc/auth'
 import Shop from './components/Shop/Shop.Component';
 import AddProduct from './components/User/Admin/add_product';
 import ManageCategories from './components/User/Admin/manage_categories';
-
+import ProductPage from './components/Product/Product.Component';
 
 
 const Routes = () => {
@@ -22,6 +22,7 @@ const Routes = () => {
         <Route path="/admin/manage_categories" exact component={Auth(ManageCategories,true)}/>
 
         {/* //public routes */}
+        <Route path="/product_detail/:id" exact component={Auth(ProductPage,null)}/>
         <Route path="/register_login" exact component={Auth(RegisterLogin, false)} />
         <Route path="/register" exact component={Auth(Register, false)} />
         <Route path="/shop" exact component={Auth(Shop, null)} />

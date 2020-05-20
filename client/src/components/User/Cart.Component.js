@@ -3,7 +3,12 @@ import UserLayout from '../../hoc/user';
 import UserProductBlock from '../utils/User/ProductBlock.Component';
 
 import { connect } from 'react-redux';
-import { getCartItems, removeCartItem } from '../../actions/user_actions';
+import { getCartItems, removeCartItem, onSuccessBuy } from '../../actions/user_actions';
+
+
+import Paypal from '../utils/Paypal.Component';
+
+
 
 
 class UserCart extends Component {
@@ -69,6 +74,29 @@ class UserCart extends Component {
         </div>
     )
 
+    transactionCanceled = () => {
+        console.log('Transaction cancled')
+    }
+
+
+    transactionError = (data) => {
+        console.log('Paypal error')
+    }
+
+    transactionSuccess = (data) => {
+        this.props.dispatch(onSuccessBuy({
+            cartDetail: this.props.user.cartDetail,
+            paymentData: data
+        })).then(() => {
+            if (this.props.user.successBuy) {
+                this.setState({
+                    showTotal: false,
+                    showSuccess: true
+                })
+            }
+        })
+    }
+
     render() {
         return (
             <UserLayout>
@@ -92,6 +120,7 @@ class UserCart extends Component {
                             :
                             this.state.showSuccess ?
                                 <div className="cart_success">
+
                                     <div>
                                         THANK YOU
                                     </div>
@@ -103,6 +132,19 @@ class UserCart extends Component {
                                 this.showNoItemMessage()
                         }
                     </div>
+                    {
+                        this.state.showTotal ?
+                            <div className="paypal_button_container">
+                                <Paypal
+                                    toPay={this.state.total}
+                                    transactionError={(data) => this.transactionError(data)}
+                                    transactionCanceled={(data) => this.transactionCanceled(data)}
+                                    onSuccess={(data) => this.transactionSuccess(data)}
+                                />
+                            </div>
+                            : null
+
+                    }
 
                 </div>
             </UserLayout>

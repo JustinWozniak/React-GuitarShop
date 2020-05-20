@@ -7,6 +7,7 @@ import {
     ADD_TO_CART_USER,
     GET_CART_ITEMS_USER,
     REMOVE_CART_ITEM_USER,
+    ON_SUCCESS_BUY_USER,
 } from './types';
 
 import { USER_SERVER, PRODUCT_SERVER } from '../components/utils/misc';
@@ -115,4 +116,14 @@ export function getCartItems(cartItems, userCart) {
         payload: request
     }
 
+}
+
+export function onSuccessBuy(data) {
+    const request = axios.post(`${USER_SERVER}/successBuy`, data)
+        .then(response => response.data);
+
+    return {
+        type: ON_SUCCESS_BUY_USER,
+        payload: request
+    }
 }

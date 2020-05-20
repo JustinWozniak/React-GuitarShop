@@ -10,6 +10,8 @@ import Shop from './components/Shop/Shop.Component';
 import AddProduct from './components/User/Admin/add_product';
 import ManageCategories from './components/User/Admin/manage_categories';
 import ProductPage from './components/Product/Product.Component';
+import UserCart from './components/User/Cart.Component';
+
 
 
 const Routes = () => {
@@ -19,6 +21,7 @@ const Routes = () => {
         {/* //Admin Routes */}
         <Route path="/user/dashboard" exact component={Auth(UserDashboard, true)} />
         <Route path="/admin/add_product" exact component={Auth(AddProduct,true)}/>
+        <Route path="/user/cart" exact component={Auth(UserCart,true)}/>
         <Route path="/admin/manage_categories" exact component={Auth(ManageCategories,true)}/>
 
         {/* //public routes */}

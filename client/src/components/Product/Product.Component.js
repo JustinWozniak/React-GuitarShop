@@ -2,31 +2,31 @@ import React, { Component } from 'react';
 import PageTop from '../utils/page_top';
 
 import ProdNfo from './ProdInfo.Component';
-
+import ProdImg from './ProdImg.Component'
 
 import { connect } from 'react-redux';
 import { getProductDetail, clearProductDetail } from '../../actions/products_actions';
 
 class ProductPage extends Component {
 
-    componentDidMount() {
+    componentDidMount(){
         const id = this.props.match.params.id;
-        this.props.dispatch(getProductDetail(id)).then(() => {
-            if (!this.props.products.prodDetail) {
+        this.props.dispatch(getProductDetail(id)).then(()=>{
+            if(!this.props.products.prodDetail){
                 this.props.history.push('/');
             }
         })
     }
 
-    componentWillUnmount() {
+    componentWillUnmount(){
         this.props.dispatch(clearProductDetail())
     }
 
 
-    addToCartHandler(id) {
-
+    addToCartHandler(id){
+     
     }
-
+    
     render() {
         return (
             <div>
@@ -39,7 +39,9 @@ class ProductPage extends Component {
                     <div className="product_detail_wrapper">
                         <div className="left">
                             <div style={{width:'500px'}}>
-                               
+                                <ProdImg
+                                    detail={this.props.products.prodDetail}
+                                />
                             </div>
                         </div>
                         <div className="right">
@@ -57,7 +59,6 @@ class ProductPage extends Component {
         );
     }
 }
-
 
 const mapStateToProps = (state) => {
     return {

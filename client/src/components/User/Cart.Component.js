@@ -3,7 +3,7 @@ import UserLayout from '../../hoc/user';
 import UserProductBlock from '../utils/User/ProductBlock.Component';
 
 import { connect } from 'react-redux';
-import { getCartItems } from '../../actions/user_actions';
+import { getCartItems, removeCartItem } from '../../actions/user_actions';
 
 
 class UserCart extends Component {
@@ -48,6 +48,18 @@ class UserCart extends Component {
         });
     }
 
+    removeFromCart = (id) => {
+        this.props.dispatch(removeCartItem(id))
+            .then(() => {
+                if (this.props.user.cartDetail.length <= 0) {
+                    this.setState({
+                        showTotal: false
+                    })
+                } else {
+                    this.calculateTotal(this.props.user.cartDetail)
+                }
+            })
+    }
 
     showNoItemMessage = () => (
         <div className="cart_no_items">

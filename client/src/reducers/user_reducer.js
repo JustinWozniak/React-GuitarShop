@@ -7,6 +7,8 @@ import {
     GET_CART_ITEMS_USER,
     REMOVE_CART_ITEM_USER,
     ON_SUCCESS_BUY_USER,
+    UPDATE_DATA_USER,
+    CLEAR_UPDATE_USER_DATA
 } from '../actions/types';
 
 
@@ -49,6 +51,10 @@ export default function (state = {}, action) {
                 },
                 cartDetail: action.payload.cartDetail
             }
+        case UPDATE_DATA_USER:
+            return { ...state, updateUser: action.payload }
+        case CLEAR_UPDATE_USER_DATA:
+            return { ...state, updateUser: action.payload }
         default:
             return state;
     }

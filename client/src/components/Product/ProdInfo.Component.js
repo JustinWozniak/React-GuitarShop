@@ -2,10 +2,6 @@ import React from 'react';
 import MyButton from '../utils/button';
 
 
-import faTruck from '@fortawesome/fontawesome-free-solid/faTruck';
-import faCheck from '@fortawesome/fontawesome-free-solid/faCheck';
-import faTimes from '@fortawesome/fontawesome-free-solid/faTimes';
-
 const ProdNfo = (props) => {
 
     const showProdTags = (detail) => (

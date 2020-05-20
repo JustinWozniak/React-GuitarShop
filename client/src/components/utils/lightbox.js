@@ -6,14 +6,14 @@ class ImageLightBox extends Component {
     state = {
         lightboxIsOpen: true,
         currentImage: this.props.pos,
-        images:[]
+        images: []
     }
 
-    static getDerivedStateFromProps(props,state){
-        if(props.images){
+    static getDerivedStateFromProps(props, state) {
+        if (props.images) {
             const images = [];
-            props.images.forEach(element=>{
-                images.push({src:`${element}`})
+            props.images.forEach(element => {
+                images.push({ src: `${element}` })
             });
             return state = {
                 images
@@ -24,13 +24,13 @@ class ImageLightBox extends Component {
 
     gotoPrevious = () => {
         this.setState({
-            currentImage: this.state.currentImage -1
+            currentImage: this.state.currentImage - 1
         })
     }
 
     gotoNext = () => {
         this.setState({
-            currentImage: this.state.currentImage +1
+            currentImage: this.state.currentImage + 1
         })
     }
 
@@ -44,9 +44,9 @@ class ImageLightBox extends Component {
                 currentImage={this.state.currentImage}
                 images={this.state.images}
                 isOpen={this.state.lightboxIsOpen}
-                onClickPrev={()=> this.gotoPrevious()}
-                onClickNext={()=> this.gotoNext()}
-                onClose={()=>this.closeLightbox()}
+                onClickPrev={() => this.gotoPrevious()}
+                onClickNext={() => this.gotoNext()}
+                onClose={() => this.closeLightbox()}
             />
         );
     }

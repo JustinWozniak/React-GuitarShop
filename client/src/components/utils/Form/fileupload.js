@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import faPlusCircle from '@fortawesome/fontawesome-free-solid/faPlusCircle';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 class Fileupload extends Component {
@@ -96,8 +98,13 @@ class Fileupload extends Component {
                             {({ getRootProps, getInputProps }) => (
                                 <section>
                                     <div {...getRootProps()}>
+
                                         <input {...getInputProps()} />
-                                        <p>Drag 'n' drop some files here, or click to select files</p>
+                                        <p>Drag 'n' drop some files here, or click to select files
+                                        <FontAwesomeIcon
+                                                icon={faPlusCircle}
+                                            />    </p>
+
                                     </div>
                                 </section>
                             )}

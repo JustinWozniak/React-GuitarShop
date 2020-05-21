@@ -1,7 +1,9 @@
 import React from 'react';
 import MyButton from '../utils/button';
-
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import faTruck from '@fortawesome/fontawesome-free-solid/faTruck';
+import faCheck from '@fortawesome/fontawesome-free-solid/faCheck';
+import faTimes from '@fortawesome/fontawesome-free-solid/faTimes';
 
 const ProdNfo = (props) => {
 
@@ -9,7 +11,7 @@ const ProdNfo = (props) => {
         <div className="product_tags">
             { detail.shipping ?
                 <div className="tag">
-                    <div></div>
+                    <div><FontAwesomeIcon icon={faTruck}/></div>
                     <div className="tag_text">
                         <div>Free shipping</div>
                         <div>And return</div>
@@ -19,7 +21,7 @@ const ProdNfo = (props) => {
             }
             { detail.available ?
                 <div className="tag">
-                    <div></div>
+                    <div><FontAwesomeIcon icon={faCheck}/></div>
                     <div className="tag_text">
                         <div>Available</div>
                         <div>in store</div>
@@ -27,7 +29,7 @@ const ProdNfo = (props) => {
                 </div>
             :
                 <div className="tag">
-                    <div></div>
+                    <div><FontAwesomeIcon icon={faTimes}/></div>
                     <div className="tag_text">
                         <div>Not Available</div>
                         <div>Preorder only</div>

@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import faShoppingBag from '@fortawesome/fontawesome-free-solid/faShoppingBag';
 
 const MyButton = (props) => {
 
@@ -25,6 +27,9 @@ const MyButton = (props) => {
                             props.runAction();
                         }}
                     >
+                        <FontAwesomeIcon
+                            icon={faShoppingBag}
+                        />
                     </div>
                 break;
             case "add_to_cart_link":
@@ -34,6 +39,9 @@ const MyButton = (props) => {
                             props.runAction();
                         }}
                     >
+                        <FontAwesomeIcon
+                            icon={faShoppingBag}
+                        />
                         Add to cart
                     </div>
                 break;

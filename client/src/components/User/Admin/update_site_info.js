@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import FormField from '../../utils/Form/formField';
-import { update, generateData, isFormValid,populateFields } from '../../utils/Form/formActions';
+import { update, generateData, isFormValid, populateFields } from '../../utils/Form/formActions';
 
 import { connect } from 'react-redux'
 import { getSiteData, updateSiteData } from '../../../actions/site_actions';
@@ -10,104 +10,104 @@ class UpdateSiteNfo extends Component {
 
     state = {
         formError: false,
-        formSuccess:false,
-        formdata:{
+        formSuccess: false,
+        formdata: {
             address: {
                 element: 'input',
                 value: '',
-                config:{
-                    label:'Adresss',
+                config: {
+                    label: 'Adresss',
                     name: 'address_input',
                     type: 'text',
                     placeholder: 'Enter the site address'
                 },
-                validation:{
+                validation: {
                     required: true
                 },
                 valid: false,
                 touched: false,
-                validationMessage:'',
+                validationMessage: '',
                 showlabel: true
-            },  
+            },
             hours: {
                 element: 'input',
                 value: '',
-                config:{
-                    label:'Working hours',
+                config: {
+                    label: 'Working hours',
                     name: 'hours_input',
                     type: 'text',
                     placeholder: 'Enter the site working hours'
                 },
-                validation:{
+                validation: {
                     required: true
                 },
                 valid: false,
                 touched: false,
-                validationMessage:'',
+                validationMessage: '',
                 showlabel: true
-            },  
+            },
             phone: {
                 element: 'input',
                 value: '',
-                config:{
-                    label:'Phone number',
+                config: {
+                    label: 'Phone number',
                     name: 'phone_input',
                     type: 'text',
                     placeholder: 'Enter the phone number'
                 },
-                validation:{
+                validation: {
                     required: true
                 },
                 valid: false,
                 touched: false,
-                validationMessage:'',
+                validationMessage: '',
                 showlabel: true
-            },  
+            },
             email: {
                 element: 'input',
                 value: '',
-                config:{
-                    label:'Shop email',
+                config: {
+                    label: 'Shop email',
                     name: 'email_input',
                     type: 'email',
                     placeholder: 'Enter your email'
                 },
-                validation:{
+                validation: {
                     required: true,
                     email: true
                 },
                 valid: false,
                 touched: false,
-                validationMessage:'',
+                validationMessage: '',
                 showlabel: true
-            },  
+            },
         }
     }
 
     updateForm = (element) => {
-        const newFormdata = update(element,this.state.formdata,'site_info');
+        const newFormdata = update(element, this.state.formdata, 'site_info');
         this.setState({
             formError: false,
             formdata: newFormdata
         })
     }
 
-    submitForm= (event) =>{
+    submitForm = (event) => {
         event.preventDefault();
-        
-        let dataToSubmit = generateData(this.state.formdata,'site_info');
-        let formIsValid = isFormValid(this.state.formdata,'site_info')
 
-        if(formIsValid){
-            this.props.dispatch(updateSiteData(dataToSubmit)).then(()=>{
+        let dataToSubmit = generateData(this.state.formdata, 'site_info');
+        let formIsValid = isFormValid(this.state.formdata, 'site_info')
+
+        if (formIsValid) {
+            this.props.dispatch(updateSiteData(dataToSubmit)).then(() => {
                 this.setState({
                     formSuccess: true
-                },()=>{
-                    setTimeout(()=>{
+                }, () => {
+                    setTimeout(() => {
                         this.setState({
                             formSuccess: false
                         })
-                    },2000)
+                    }, 2000)
                 })
             });
         } else {
@@ -117,10 +117,10 @@ class UpdateSiteNfo extends Component {
         }
     }
 
-    componentDidMount(){
-        this.props.dispatch(getSiteData()).then(()=>{
+    componentDidMount() {
+        this.props.dispatch(getSiteData()).then(() => {
             console.log(this.props.site.siteData[0]);
-            const newFormData = populateFields(this.state.formdata,this.props.site.siteData[0]);
+            const newFormData = populateFields(this.state.formdata, this.props.site.siteData[0]);
             this.setState({
                 formdata: newFormData
             });
@@ -131,7 +131,7 @@ class UpdateSiteNfo extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={(event)=>  this.submitForm(event)}>
+                <form onSubmit={(event) => this.submitForm(event)}>
                     <h1>Site info</h1>
                     <FormField
                         id={'address'}
@@ -159,11 +159,11 @@ class UpdateSiteNfo extends Component {
 
                     <div>
                         {
-                            this.state.formSuccess ? 
-                            <div className="form_success">
-                                Success
+                            this.state.formSuccess ?
+                                <div className="form_success">
+                                    Success
                             </div>
-                            :null
+                                : null
                         }
                         {this.state.formError ?
                             <div className="error_label">
@@ -171,7 +171,7 @@ class UpdateSiteNfo extends Component {
                                         </div>
                             : null}
                         <button onClick={(event) => this.submitForm(event)}>
-                           Update
+                            Update
                         </button>
                     </div>
 

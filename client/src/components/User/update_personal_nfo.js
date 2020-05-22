@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FormField from '../utils/Form/formField';
+import FormField from '../utils/Form/FormField';
 
 import { connect } from 'react-redux';
 import { updateUserData, clearUpdateUser } from '../../actions/user_actions';

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Formfield from '../../utils/Form/formField';
+import FormField from '../../utils/Form/FormField';
 import { update, generateData, isFormValid, resetFields } from '../../utils/Form/formActions';
 
 import { connect } from 'react-redux';
@@ -99,7 +99,7 @@ class ManageWoods extends Component {
 
                         <form onSubmit={(event) => this.submitForm(event)}>
 
-                            <Formfield
+                            <FormField
                                 id={'name'}
                                 formdata={this.state.formdata.name}
                                 change={(element) => this.updateForm(element)}

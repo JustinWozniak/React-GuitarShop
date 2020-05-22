@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import UserLayout from '../../../hoc/user';
 
-import FormField from '../../utils/Form/formField';
+import FormField from '../../utils/Form/FormField';
 import { update, generateData, isFormValid, populateOptionFields, resetFields } from '../../utils/Form/formActions';
 import FileUpload from '../../utils/Form/fileupload';
 

@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "Justins Guitar Shop'",
   "main": "index.js",
+
+  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/server.js",
+   "start": "serve -s build",
     "server": "nodemon server/server.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",

@@ -66,6 +66,8 @@ const Footer = ({data}) => {
                         <div>
                             <div>
                             Get all the latest information on events, sales and offers.You can miss out.
+                            <br />
+                            FROM THE BRAIN OF JUSTIN WOZNIAK 2020
                             </div>
                         </div>
                     </div>      

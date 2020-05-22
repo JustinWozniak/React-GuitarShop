@@ -7,7 +7,7 @@ const HomeSlider = (props) => {
     const slides = [
         {
             img: '/images/featured/featured_home.jpg',
-            lineOne: 'Fender',
+            lineOne: 'Gretsch',
             lineTwo: 'Custom shop',
             linkTitle: 'Shop now',
             linkTo: '/shop'

@@ -1,6 +1,6 @@
 import React from 'react';
 import MyButton from '../utils/button';
-import Login from './Login.Component'
+import Login from './Login.Component';
 
 const RegisterLogin = () => {
     return (
@@ -15,14 +15,14 @@ const RegisterLogin = () => {
                             title="Create an account"
                             linkTo="/register"
                             addStyles={{
-                                margin: '10px 0 0 0'
+                                margin:'10px 0 0 0'
                             }}
                         />
                     </div>
                     <div className="right">
                         <h2>Registered customers</h2>
                         <p>If you have an account please log in.</p>
-                            <Login />
+                        <Login/>
                     </div>
                 </div>
             </div>

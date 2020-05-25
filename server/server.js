@@ -23,24 +23,12 @@ const { Site } = require('./models/site');
 
 mongoose.set('useCreateIndex', true)
 mongoose.Promise = global.Promise;
-
-let mongoDB = "mongodb://heroku_wfslcbrv:Thedrunkfox67@@ds241489.mlab.com:41489/heroku_wfslcbrv";
-
-mongoose.connect(mongoDB, {
-    useMongoClient: true
-});
-
-var db = mongoose.connection;
-
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.use(express.static('client/build'))
-
 
 
 

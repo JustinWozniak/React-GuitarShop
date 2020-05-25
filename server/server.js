@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const formidable = require('express-formidable');
 const cloudinary = require('cloudinary');
+const mailer = require('nodemailer')
 
 const app = express();
 const mongoose = require('mongoose');
@@ -38,6 +39,34 @@ cloudinary.config({
     api_key: process.env.CLOUD_API_KEY,
     api_secret: process.env.CLOUD_API_SECRET
 })
+
+
+const smpttransport = mailer.createTransport({
+    service: "Gmail",
+    auth: {
+        user: "wozzytheprogrammer@gmail.com",
+        pass: "Thedrunkfox67"
+    }
+})
+
+let mail = {
+    from: "wozzytheprogrammer@gmail.com",
+    to: "javascriptjustin@yahoo.com",
+    subject: "test email",
+    text: "Testing our mails",
+    html: "<b>HELLO THIS WORKS</b>"
+}
+
+smpttransport.sendMail(mail,function(error,responce) {
+    if (error)  {
+        console.log(error)
+    }   else{
+        console.log("email sent")
+    }
+    smpttransport.close()
+})
+
+
 
 
 //=================================

@@ -13,7 +13,7 @@ import ProductPage from './components/Product/Product.Component';
 import UserCart from './components/User/Cart.Component';
 import UpdateProfile from './components/User/UpdateProfile.Component';
 import ManageSite from './components/User/Admin/manage_site'
-
+import PageNotFound from './components/utils/page_not_found';
 
 const Routes = () => {
   return (
@@ -21,20 +21,21 @@ const Routes = () => {
       <Switch>
         {/* //Admin Routes */}
         <Route path="/user/dashboard" exact component={Auth(UserDashboard, true)} />
-        <Route path="/admin/add_product" exact component={Auth(AddProduct,true)}/>
-        <Route path="/user/cart" exact component={Auth(UserCart,true)}/>
-        <Route path="/admin/manage_categories" exact component={Auth(ManageCategories,true)}/>
-        <Route path="/user/user_profile" exact component={Auth(UpdateProfile,true)}/>
-        <Route path="/admin/site_info" exact component={Auth(ManageSite,true)}/>
+        <Route path="/admin/add_product" exact component={Auth(AddProduct, true)} />
+        <Route path="/user/cart" exact component={Auth(UserCart, true)} />
+        <Route path="/admin/manage_categories" exact component={Auth(ManageCategories, true)} />
+        <Route path="/user/user_profile" exact component={Auth(UpdateProfile, true)} />
+        <Route path="/admin/site_info" exact component={Auth(ManageSite, true)} />
 
 
 
         {/* //public routes */}
-        <Route path="/product_detail/:id" exact component={Auth(ProductPage,null)}/>
+        <Route path="/product_detail/:id" exact component={Auth(ProductPage, null)} />
         <Route path="/register_login" exact component={Auth(RegisterLogin, false)} />
         <Route path="/register" exact component={Auth(Register, false)} />
         <Route path="/shop" exact component={Auth(Shop, null)} />
         <Route path="/" exact component={Auth(Home, null)} />
+        <Route component={Auth(PageNotFound)} />
       </Switch>
     </Layout>
   )

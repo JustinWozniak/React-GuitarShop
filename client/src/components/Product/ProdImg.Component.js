@@ -17,7 +17,7 @@ class ProdImg extends Component {
             let lightboxImages = [];
 
             this.props.detail.images.forEach(item => {
-                console.log(item)
+                // console.log(item)
                 lightboxImages.push(item.url)
             })
 

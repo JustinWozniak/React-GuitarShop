@@ -54,9 +54,9 @@ const sendEmail = (to, name, token, type, actionData = null) => {
 
     smtpTransport.sendMail(mail, function (error, response) {
         if (error) {
-            console.log(error);
+            console.log(error + " error sending mail");
         } else {
-            cb()
+           console.log(mail, response)
         }
         smtpTransport.close();
     })

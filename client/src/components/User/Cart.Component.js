@@ -115,6 +115,16 @@ class UserCart extends Component {
                                 <div className="user_cart_sum">
                                     <div>
                                         Total amount: $ {this.state.total}
+                                        <br />
+                                        <br />
+                                        <br />
+                                        **For development purposes, use 
+                                        <br />
+                                        email:sb-435d0l1849932@personal.example.com
+                                        <br /> 
+                                        and password: paypalfake123 
+                                        <br />
+                                        to make phoney purchases****
                                     </div>
                                 </div>
                             </div>
